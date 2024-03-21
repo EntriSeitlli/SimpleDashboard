@@ -30,7 +30,7 @@ export class ChartsComponent {
     const stackedBarCanvas: any = document.getElementById('stackedBarChart');
     const stackedBarCtx = stackedBarCanvas.getContext('2d');
 
-    // provide url for data doesnt work
+    // providde url for data doesnt work
     new Chart(stackedBarCtx, {
       type: 'bar',
       data: {
@@ -38,18 +38,27 @@ export class ChartsComponent {
         datasets: [{
           label: 'Count',
           data: [62, 174, 165, 142, 87],
-          backgroundColor: 'rgba(255, 99, 132, 0.5)' // Red color
+          backgroundColor: 'rgba(255, 99, 132, 0.5)'
         }, {
           label: 'Deaths',
           data: [45, 122, 140, 98, 75],
-          backgroundColor: 'rgba(54, 162, 235, 0.5)' // Blue color
+          backgroundColor: 'rgba(54, 162, 235, 0.5)'
         }]
       },
       options: {
         scales: {
           x: { stacked: true },
           y: { stacked: true }
-        }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Titanic',
+            font: {
+              size: 18
+            }
+          }
+        },
       }
     });
 
@@ -83,6 +92,28 @@ export class ChartsComponent {
       })
       .catch(error => {
         console.error('Error fetching data:', error);
+        //fetch doesnt work when project is live on git
+        new Chart(barCanvasCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'AvgCarCrashes',
+              data: [5821, 5245, 5312, 5923, 6231, 6892, 6541],
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                min: 3000,
+                max: 8000
+              }
+            }
+          }
+        });
       });
 
     //line chart
@@ -90,13 +121,13 @@ export class ChartsComponent {
     const lineCanvasCtx = lineCanvas.getContext('2d');
 
 
-    // provide url for data doesnt work
+    // provided url for data doesnt work
     new Chart(lineCanvasCtx, {
       type: 'line',
       data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // Sample dates
         datasets: [{
-          label: '2002',
+          label: 'MonthlyAvgBirths',
           data: [54951, 51826, 53561, 53264, 56071, 55027, 57754, 56773, 57035, 55169, 54054, 54754],
           fill: false,
           borderColor: 'rgba(255, 99, 132, 1)',
@@ -148,6 +179,27 @@ export class ChartsComponent {
       })
       .catch(error => {
         console.error('Error fetching data:', error);
+        //fetch doesnt work when project is live on git
+        new Chart(pieCanvasCtx, {
+          type: 'pie',
+          data: {
+            labels: ['Employed','Unemployed', 'Retired'],
+            datasets: [{
+              data: [ 44, 24, 32],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+              ],
+              borderWidth: 1
+            }]
+          }
+        });
       });
   }
 }

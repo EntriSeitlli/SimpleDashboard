@@ -1,0 +1,6 @@
+<mat-grid-list [cols]="responsiveCol" rowHeight="2:1" gutterSize="16" (window:resize)="handleSize($event)">
+    <mat-grid-tile class="chart"><canvas id="stackedBarChart" width="600" height="400"></canvas></mat-grid-tile>
+    <mat-grid-tile class="chart"><canvas id="barChart" width="600" height="400"></canvas></mat-grid-tile>
+    <mat-grid-tile class="chart"><canvas id="lineChart" width="600" height="400"></canvas></mat-grid-tile>
+    <mat-grid-tile class="chart"><canvas id="pieChart" width="600" height="400"></canvas></mat-grid-tile>
+</mat-grid-list>

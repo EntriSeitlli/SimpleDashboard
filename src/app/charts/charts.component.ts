@@ -92,7 +92,7 @@ export class ChartsComponent {
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-        //fetch doesnt work when project is live on git
+        //fetch is unsecured over http and doesnt work when project is live on git
         new Chart(barCanvasCtx, {
           type: 'bar',
           data: {
@@ -179,7 +179,7 @@ export class ChartsComponent {
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-        //fetch doesnt work when project is live on git
+        //fetch is unsecured over http and doesnt work when project is live on git
         new Chart(pieCanvasCtx, {
           type: 'pie',
           data: {
